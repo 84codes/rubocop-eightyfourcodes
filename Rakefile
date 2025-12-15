@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
-require "bundler/gem_tasks"
+require "bundler/setup"
 require "rspec/core/rake_task"
 require "rubocop/rake_task"
+
+require_relative "lib/rubocop/eightyfourcodes/version"
 
 RuboCop::RakeTask.new
 
@@ -29,4 +31,16 @@ task :new_cop, [:cop] do |_task, args|
   generator.inject_config(config_file_path: "config/default.yml")
 
   puts generator.todo
+end
+
+namespace :git do
+  version = RuboCop::EightyFourCodes::VERSION
+  tag = "v#{version}"
+
+  desc "Create a signed git tag named: #{tag}"
+  task :tag do
+    command = %(git tag --sign --message="Version #{version}" #{tag})
+
+    system(command, exception: true)
+  end
 end

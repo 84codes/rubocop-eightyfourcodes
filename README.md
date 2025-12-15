@@ -63,10 +63,10 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 
 To release a new version, update the version number in `version.rb`, in a commit or pull request.
 
-Create and push a new git tag:
+Create and push a new signed git tag, the `git:tag` rake task will use the version from `version.rb`.
 
 ```shell
-git tag -m "Version <VERSION>" v<VERSION>
+rake git:tag
 git push --tags
 ```
 
