@@ -23,6 +23,6 @@ jobs:
       - run: gem build rubocop-eightyfourcodes
       - run: gem install *.gem
       - run: |
-          ruby -S gem exec sigstore-cli:0.2.1 sign *.gem --bundle attestation.sigstore.json
+          ruby -S gem exec sigstore-cli:0.2.2 sign *.gem --bundle attestation.sigstore.json
       - run: |
           gem push --attestation attestation.sigstore.json *.gem
