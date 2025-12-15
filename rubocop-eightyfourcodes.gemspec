@@ -5,14 +5,14 @@ require_relative "lib/rubocop/eightyfourcodes/version"
 Gem::Specification.new do |spec|
   spec.name = "rubocop-eightyfourcodes"
   spec.version = RuboCop::EightyFourCodes::VERSION
-  spec.authors = ["Anders Bälter"]
-  spec.email = ["anders@84codes.com"]
+  spec.authors = ["84codes"]
+  spec.email = ["developers@84codes.com"]
 
   spec.summary = "This is a collection of cops developed and used by 84codes AB."
   spec.description = <<~DESCRIPTION
     A plugin for the RuboCop code style enforcing & linting tool.
   DESCRIPTION
-  spec.homepage = "https://github.com/84codes/rubocop-eightyfourcodes/"
+  spec.homepage = "https://github.com/84codes/rubocop-eightyfourcodes"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.4.0"
 
