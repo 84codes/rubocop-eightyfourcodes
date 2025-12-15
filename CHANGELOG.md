@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.6 (2025-12-15)
+
+- Added 84codes RuboCop rules ([#21](https://github.com/84codes/rubocop-eightyfourcodes/pull/21))
+
 ## 0.0.5 (2025-05-07)
 
 - Handled deprecation of `EnsureNode#body` ([#20](https://github.com/84codes/rubocop-eighty-four-codes/pull/20))
