@@ -6,9 +6,6 @@ on:
       - v*
   workflow_dispatch:
 
-permissions:
-  contents: read
-
 jobs:
   release:
     if: github.repository == '84codes/rubocop-eighty-four-codes'
