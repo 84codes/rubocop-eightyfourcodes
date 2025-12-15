@@ -1,6 +1,7 @@
+inherit_from: config/eightyfourcodes.yml
+
 plugins:
   - rubocop-rspec
-  - rubocop-rake
 
 AllCops:
   NewCops: enable

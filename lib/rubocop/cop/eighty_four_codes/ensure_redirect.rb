@@ -33,7 +33,7 @@ module RuboCop
       #     cleanup
       #   end
       class EnsureRedirect < Base
-        MSG = 'Do not redirect from an `ensure` block.'
+        MSG = "Do not redirect from an `ensure` block."
 
         def on_ensure(node)
           # `:send` nodes represent method calls, so we look for send nodes and then check if they are `redirect`

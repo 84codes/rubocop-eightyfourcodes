@@ -28,12 +28,12 @@ module RuboCop
         PATTERN
 
         def on_send(node)
-          return unless File.basename(processed_source.file_path).eql?('Gemfile')
+          return unless File.basename(processed_source.file_path).eql?("Gemfile")
 
           static_version_found?(node) do |source_node, source|
-            message = format(MSG, source: source)
+            message = format(MSG, source:)
 
-            add_offense(source_node, message: message) do |corrector|
+            add_offense(source_node, message:) do |corrector|
               corrector.replace(source_node, "File.read('.ruby-version')")
             end
           end

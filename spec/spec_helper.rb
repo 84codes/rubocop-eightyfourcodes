@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'rubocop-eightyfourcodes'
-require 'rspec'
-require 'rubocop/rspec/support'
+require "rubocop-eightyfourcodes"
+require "rspec"
+require "rubocop/rspec/support"
 
 RSpec.configure do |config|
   config.include RuboCop::RSpec::ExpectOffense
@@ -19,5 +19,5 @@ RSpec.configure do |config|
     meta[:type] = :cop_spec
   end
 
-  config.include_context 'config', type: :cop_spec
+  config.include_context "config", type: :cop_spec
 end
