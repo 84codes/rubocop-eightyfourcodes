@@ -8,7 +8,7 @@ on:
 
 jobs:
   release:
-    if: github.repository == '84codes/rubocop-eighty-four-codes'
+    if: github.repository == '84codes/rubocop-eightyfourcodes'
     runs-on: ubuntu-latest
     permissions:
       id-token: write # for trusted publishing
