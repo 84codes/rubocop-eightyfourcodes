@@ -1,0 +1,143 @@
+plugins:
+  - rubocop-minitest
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-sequel
+
+require:
+  - rubocop-eightyfourcodes
+
+AllCops:
+  TargetRubyVersion: 3.4
+  NewCops: enable
+
+### Metrics
+
+Metrics/ClassLength:
+  Max: 300
+  CountAsOne: ["array", "hash", "heredoc", "method_call"]
+
+Metrics/ModuleLength:
+  Max: 300
+  CountAsOne: ["array", "hash", "heredoc", "method_call"]
+
+Metrics/MethodLength:
+  Max: 50
+  CountAsOne: ["array", "hash", "heredoc", "method_call"]
+
+Metrics/AbcSize:
+  Max: 40
+
+Metrics/CyclomaticComplexity:
+  Max: 12
+
+Metrics/BlockLength:
+  Max: 200
+  AllowedMethods:
+    - refine
+    - describe
+
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+
+### Lint
+
+Lint/DuplicateBranch:
+  IgnoreDuplicateElseBranch: true
+  IgnoreLiteralBranches: true
+  IgnoreConstantBranches: true
+
+Lint/UselessConstantScoping:
+  # Increases indirection and reduces readability. We often don't care about constant scoping.
+  Enabled: false
+
+### Style
+
+Style/Documentation:
+  Enabled: false
+
+Style/GuardClause:
+  AllowConsecutiveConditionals: true
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/MethodCallWithArgsParentheses:
+  AllowParenthesesInMultilineCall: true
+  AllowParenthesesInChaining: true
+  AllowParenthesesInCamelCaseMethod: true
+  AllowParenthesesInStringInterpolation: true
+  AllowedMethods: ["puts", "print"]
+  AllowedPatterns: ["^assert"]
+
+Style/ClassVars:
+  # We use them quite a lot, and the "good" alternative is not so nice.
+  # Need a targeted effort to refactor our codebase to get rid of them.
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: always
+
+### Layout
+
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/LineLength:
+  URISchemes: ["http", "https", "amqp", "amqps"]
+  AllowedPatterns:
+    - '^\s*puts(\s|\()'
+    - '^\s*print(\s|\()'
+    - '^\s*@?log(ger)?[\s\(\.]'
+    - '^\s*LOG(GER)?[\s\(\.]'
+    - '^\s*debug[\s\(]'
+    - '^\s*\#'
+
+### Performance
+
+Performance/RedundantMerge:
+  MaxKeyValuePairs: 1
+
+Performance/BigDecimalWithNumericArgument:
+  Enabled: false
+
+Performance/ChainArrayAllocation:
+  Enabled: false
+
+### Naming
+
+Naming/MethodParameterName:
+  MinNameLength: 1
+
+Naming/PredicateMethod:
+  AllowBangMethods: true
+
+### Security
+
+GitlabSecurity/JsonSerialization:
+  Enabled: false
+
+### Minitest
+
+Minitest/GlobalExpectations:
+  EnforcedStyle: _
+
+Minitest/MultipleAssertions:
+  Enabled: true
+
+# Sequel
+
+Sequel/SaveChanges:
+  Enabled: false
+
+Sequel/IrreversibleMigration:
+  Enabled: false

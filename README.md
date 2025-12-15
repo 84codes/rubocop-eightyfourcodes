@@ -28,6 +28,13 @@ require: rubocop-eightyfourcodes
 Now you can run `rubocop` and it will automatically load the RuboCop eightyfourcodes
 cops together with the standard cops.
 
+To use the `eightyfourcodes` RuboCop config:
+
+```yaml
+inherit_gem:
+  rubocop-eightyfourcodes: config/eightyfourcodes.yml
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
@@ -35,6 +42,20 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 Use `bundle exec rake 'new_cop[EightyFourCodes/CommandLiteralInjection]'` to generate a new cop.
 
 The [NodePattern Debugger](https://nodepattern.herokuapp.com/) is a very helpful resource when creating new AST matchers.
+
+
+If you need to try out this gem in a project using it, before releasing a new version, you can do the following in the project:
+
+```ruby
+gem "rubocop-eightyfourcodes", **(ENV["LOCAL_RUBOCOP84"] ? { path: ENV["LOCAL_RUBOCOP84"] } : {})
+```
+
+Then try it like this:
+
+```shell
+LOCAL_RUBOCOP84=~/repos/rubocop-eightyfourcodes bundle install
+LOCAL_RUBOCOP84=~/repos/rubocop-eightyfourcodes bundle exec rubocop
+```
 
 ## Releasing
 
